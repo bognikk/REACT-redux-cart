@@ -1,0 +1,24 @@
+import Card from "../UI/Card";
+import Button from "../UI/Button";
+import classes from "./ProductItem.module.scss";
+
+const ProductItem = (props) => {
+	const { title, price, description } = props;
+
+	return (
+		<li className={classes.item}>
+			<Card>
+				<header>
+					<h3>{title}</h3>
+					<div className={classes.price}>${price.toFixed(2)}</div>
+				</header>
+				<p>{description}</p>
+				<div className={classes.actions}>
+					<Button title={"Add to Cart"} />
+				</div>
+			</Card>
+		</li>
+	);
+};
+
+export default ProductItem;
