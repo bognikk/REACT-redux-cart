@@ -1,11 +1,12 @@
 import Button from "../UI/Button";
 import { uiActions } from "../../store/ui-slice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import classes from "./MainHeader.module.scss";
 
 const MainHeader = (props) => {
 	const dispatch = useDispatch();
+	const cartQuantity = useSelector((state) => state.cart.totalQuantity);
 
 	const toggleCartHandler = () => {
 		dispatch(uiActions.toggle());
@@ -21,6 +22,7 @@ const MainHeader = (props) => {
 							title="My Cart"
 							setBadge={true}
 							clickHandler={toggleCartHandler}
+							quantity={cartQuantity}
 						/>
 					</li>
 				</ul>
